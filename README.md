@@ -5,6 +5,7 @@ application up and running.
 
 Things you may want to cover:
 
+# 一緒に作る顧客管理システム
 * Ruby version
 
 * System dependencies
