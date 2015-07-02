@@ -1,6 +1,4 @@
 Crm1::Application.routes.draw do
-  get "customers/new"
-  get "homes/top"
   root 'homes#top'
   get '/about' => 'homes#about'
   get '/new' => 'customers#new'
