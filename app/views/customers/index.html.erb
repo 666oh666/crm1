@@ -1,0 +1,22 @@
+<h1>顧客管理システム</h1>
+
+<%= link_to '新規登録', new_path %>
+
+<table>
+<tr>
+	<th>ID</th>
+	<th>業種</th>
+	<th>会社名</th>
+	<th>電話番号</th>
+</tr>
+<% @customer.each do |customer| %>
+<tr>
+	<td><%= customer.id %></td>
+	<td><%= customer.job_type %></td>
+	<td><%= customer.company_name %></td>
+	<td><%= customer.tel %></td>
+</tr>
+
+
+<% end %>
+</table>

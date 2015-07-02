@@ -2,6 +2,8 @@ Crm1::Application.routes.draw do
   root 'homes#top'
   get '/about' => 'homes#about'
   get '/new' => 'customers#new'
+  get '/index' => 'customers#index'
+  post "customer" => 'customers#create' 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
