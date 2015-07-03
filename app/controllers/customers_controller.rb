@@ -8,13 +8,15 @@ class CustomersController < ApplicationController
   end
 
   def create
-  	@customer = Customer.new(customer_params)
-  	@customer.job_type = params[:customer][:job_type]
-  	@customer.company_name = params[:customer][:company_name]
-  	@customer.tel = params[:customer][:tel]
-  	@customer.save
-  	redirect_to '/index'
+  	@customer = Customer.new(params[:customer])
+  	if @customer.save
+  		flash.notice = "新規登録しました"
+  		redirect_to '/index'
+  	else
+  		render action: 'new'
+  	end
   end
+  	
 
   def edit
   	@customer = Customer.find(params[:id])
@@ -22,11 +24,13 @@ class CustomersController < ApplicationController
 
   def update
   	@customer = Customer.find(params[:id])
-  	@customer.job_type = params[:customer][:job_type]
-  	@customer.company_name = params[:customer][:company_name]
-  	@customer.tel = params[:customer][:tel]
-  	@customer.save
-  	redirect_to '/index'
+  	@customer.assign_attributes(params[:customer])
+  	if @customer.save
+  		flash.notice ="新規登録しました"
+  		redirect_to '/index'
+  	else
+  		render action: 'edit'
+  	end
   end
 
   def destroy

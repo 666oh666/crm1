@@ -1,26 +1,39 @@
-<h1>顧客管理システム</h1>
-
-<%= link_to '新規登録', new_path %>
-
-<table>
-<tr>
-	<th>ID</th>
-	<th>業種</th>
-	<th>会社名</th>
-	<th>電話番号</th>
-	<th>編集</th>
-	<th>削除</th>
-</tr>
+<h1>顧客一覧</h1>
+<p class="new"><%= link_to '新規登録', new_path %></p>
+<table class="table table-hover">
+  <thead>
+	<tr>
+		<th>ID</th>
+		<th>業種</th>
+		<th>会社名</th>
+		<th>電話番号</th>
+		<th>住所</th>
+		<th>代表者</th>
+		<th>担当者</th>
+		<th>架電日</th>
+		<th>結果</th>
+		<th>メモ</th>
+		<th>操作</th>
+	</tr>
+  </thead>
+  
 <% @customer.each do |customer| %>
 <tr>
 	<td><%= customer.id %></td>
 	<td><%= customer.job_type %></td>
 	<td><%= customer.company_name %></td>
 	<td><%= customer.tel %></td>
-	<td><%= link_to '編集',edit_customer_path(customer) %></td>
-	<td><%= link_to '削除',destroy_customer_path(customer), method: "delete",data: { confirm:'Are you sure?' } %></td>
+	<td><%= customer.address %></td>
+	<td><%= customer.rep %></td>
+	<td><%= customer.pic %></td>
+	<td><%= customer.call_date %></td>
+	<td><%= customer.result %></td>
+	<td><%= customer.memo %></td>
+	<td><%= link_to '編集',edit_customer_path(customer) %> |
+		<%= link_to '削除',destroy_customer_path(customer), method: "delete",
+		data: { confirm:'Are you sure?' } %>
+	</td>
 </tr>
-
 
 <% end %>
 </table>
