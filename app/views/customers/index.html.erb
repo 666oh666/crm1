@@ -8,6 +8,7 @@
 	<th>業種</th>
 	<th>会社名</th>
 	<th>電話番号</th>
+	<th>編集</th>
 </tr>
 <% @customer.each do |customer| %>
 <tr>
@@ -15,6 +16,7 @@
 	<td><%= customer.job_type %></td>
 	<td><%= customer.company_name %></td>
 	<td><%= customer.tel %></td>
+	<td><%= link_to '編集',edit_customer_path(customer) %></td>
 </tr>
 
 
