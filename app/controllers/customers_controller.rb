@@ -29,6 +29,12 @@ class CustomersController < ApplicationController
   	redirect_to '/index'
   end
 
+  def destroy
+  	@customer = Customer.find(params[:id])
+  	@customer.destroy
+  	redirect_to '/index'
+  end
+
 	private
 	  def customer_params
 	    params.require(:customer).permit(:job_type, :company_name, :tel)
