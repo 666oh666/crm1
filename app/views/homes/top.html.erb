@@ -1,3 +1,103 @@
-<h1>Hello BullBear</h1>
+<head>
+  <title>CRM1</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
 
-<%= link_to 'new', new_path %>
+<body style="background:#b22222; padding:0px;">
+  <div class="top">
+
+	<header class="navbar navbar-fixed-top navbar-inverse">
+        <div class="container">
+          <%= link_to "CRM1", root_path, id: "logo" %>
+          <nav>
+            <ul class="nav pull-right">
+              <li><%= link_to "Index",    index_path %></li>
+              <li><%= link_to "About", about_path %></li>
+              <li><%= link_to "Contact", '/#contact' %></li>
+            </ul>
+          </nav>
+        </div>
+    </header>
+    
+	<div class="top-1">
+	  <div class="top-1-img">
+		<%= image_tag("top.png", alt: "Top") %>
+	  </div>
+	</div> <!-- top-1 -->
+
+	<div class="top-2">
+	  <div class="top-2-container">
+		<h2>Development Environment</h2>
+		  <div class="row">
+	        <div class="row-fluid">
+
+			  <div class="span4">
+			    <div class="info-img">
+				  <%= image_tag("rails-logo.png", alt: "Top", :size => "167x144") %>
+			    </div>
+				<h4>Ruby on Rails</h4>
+				<p>Ruby on Rails is a breakthrough in lowering the barriers of entry to programming.</p>
+			  </div>
+
+			  <div class="span4">
+				<div class="info-img">
+				  <%= image_tag("github-logo.png", alt: "Top", :size => "167x144") %>
+				</div>
+				<h4>GitHub</h4>
+				<p>GitHub is a web-based Git repository hosting service </p>
+			  </div>
+
+			  <div class="span4">
+				<div class="info-img">
+				  <%= image_tag("aws-logo.jpg", alt: "Top", :size => "167x144") %>
+				</div>
+				<h4>Amazon EC2</h4>
+				<p>Amazon Elastic Compute Cloud (EC2) is a central part of Amazon.com's cloud computing platform, Amazon Web Services (AWS).</p>
+			  </div>
+
+	    	</div> <!-- row-fluid -->
+		  </div> <!-- row -->
+	    </div> <!-- top-2-container -->
+	</div> <!-- top-2 -->
+
+	<div class="top-3" id="contact">
+		<h2>Contact Us</h2>
+			<form class="form-horizontal">
+
+				  <div class="control-group">
+				  	<p>Name</p>
+					<div class="controls">
+					 
+					  <input type="text" class="input-xlarge">
+					</div>
+				  </div>
+
+				  <div class="control-group">
+				  	<p>Email</p>
+					<div class="controls">
+					  
+					  <input type="text" class="input-xlarge">
+					</div>
+				  </div>
+
+				  <div class="control-group">
+				  	<p>Content</p>
+					<div class="controls">
+					  
+					  <textarea class="input-xlarge" rows="3" style="height:210px"></textarea>
+					</div>
+				  </div>
+
+				  <button type="submit" class="btn-large btn-rails">Send Message</button>
+			  </form>
+		</div> <!-- top-3 -->
+
+		<footer class="footer">
+			<hr width="70%" align="center">
+			<p style="margin-top:20px;">© BullBear, Inc. All Right Reserved.</p>
+		</footer>
+
+  </div> <!-- top -->
+</body>

@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Crm1</title>
+  <title>CRM1</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.ico' %>
 </head>
 <body>
-
-<%= yield %>
-
+	<header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <%= link_to "CRM1", root_path, id: "logo" %>
+          <nav>
+            <ul class="nav pull-right">
+              <li><%= link_to "Index",    index_path %></li>
+              <li><%= link_to "New",    new_path %></li>
+              <li><%= link_to "About", about_path %></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
 </body>
 </html>

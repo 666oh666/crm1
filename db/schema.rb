@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20150702011658) do
     t.string   "address"
     t.string   "rep"
     t.string   "pic"
-    t.date     "date"
+    t.date     "call_date"
     t.string   "result"
     t.text     "memo"
     t.datetime "created_at"
