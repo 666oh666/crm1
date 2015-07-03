@@ -16,6 +16,19 @@ class CustomersController < ApplicationController
   	redirect_to '/index'
   end
 
+  def edit
+  	@customer = Customer.find(params[:id])
+  end
+
+  def update
+  	@customer = Customer.find(params[:id])
+  	@customer.job_type = params[:customer][:job_type]
+  	@customer.company_name = params[:customer][:company_name]
+  	@customer.tel = params[:customer][:tel]
+  	@customer.save
+  	redirect_to '/index'
+  end
+
 	private
 	  def customer_params
 	    params.require(:customer).permit(:job_type, :company_name, :tel)
