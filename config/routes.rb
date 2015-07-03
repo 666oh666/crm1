@@ -4,8 +4,9 @@ Crm1::Application.routes.draw do
   get '/new' => 'customers#new'
   get '/index' => 'customers#index'
   post "customer" => 'customers#create'
-  patch "index/:id" => 'customers#update', as: 'update_customer'
   get '/index/:id/edit' => 'customers#edit', as: 'edit_customer'
+  patch 'index/:id' => 'customers#update', as: 'update_customer'
+  delete 'index/:id'=> 'customers#destroy', as: 'destroy_customer'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
