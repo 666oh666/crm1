@@ -8,9 +8,9 @@ class CustomersController < ApplicationController
   end
 
   def create
-  	@customer = Customer.new(params[:customer])
+  	@customer = Customer.new(customer_params)
   	if @customer.save
-  		flash.notice = "新規登録しました"
+      flash[:success] = "新規作成しました"
   		redirect_to '/index'
   	else
   		render action: 'new'
@@ -24,9 +24,9 @@ class CustomersController < ApplicationController
 
   def update
   	@customer = Customer.find(params[:id])
-  	@customer.assign_attributes(params[:customer])
+  	@customer.assign_attributes(customer_params)
   	if @customer.save
-  		flash.notice ="新規登録しました"
+  		flash[:success] ="更新しました"
   		redirect_to '/index'
   	else
   		render action: 'edit'
@@ -41,6 +41,6 @@ class CustomersController < ApplicationController
 
 	private
 	  def customer_params
-	    params.require(:customer).permit(:job_type, :company_name, :tel)
+	    params.require(:customer).permit(:job_type, :company_name, :tel, :address, :rep, :pic, :call_date, :result, :memo)
 	  end
 end
