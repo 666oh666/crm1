@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CRM1</title>
+  <title>CRM1 | <%= yield(:title) %></title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -17,13 +17,19 @@
               <li><%= link_to "Index",    index_path %></li>
               <li><%= link_to "New",    new_path %></li>
               <li><%= link_to "About", about_path %></li>
+              <li><%= link_to "|　Sign up", signup_path %></li>
+              <li><%= link_to "Sign in", signup_path %></li>
             </ul>
           </nav>
         </div>
       </div>
     </header>
     <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
       <%= yield %>
+	    <%= debug(params) if Rails.env.development? %>
     </div>
 </body>
 </html>
