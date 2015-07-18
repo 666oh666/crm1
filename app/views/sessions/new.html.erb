@@ -1,0 +1,22 @@
+<% provide(:title, "サインイン") %>
+<h1>サインイン</h1>
+
+<div class="row">
+	<div class="span6 offset3">
+		<%= form_for(:session,url: sessions_path) do |f| %>
+
+			<%= f.label :email %>
+			<%= f.text_field :email %>
+
+			<%= f.label :password %>
+			<%= f.password_field :password %>
+
+			<%= f.submit "サインイン", class: "btn btn-large btn-primary" %>
+		<% end %>
+	
+		<p>アカウントをお持ちでないですか?</p>
+		<p><%= link_to "新規登録", signup_path %>はこちら</p>
+	</div>
+</div>
+
+

@@ -14,11 +14,28 @@
           <%= link_to "CRM1", root_path, id: "logo" %>
           <nav>
             <ul class="nav pull-right">
-              <li><%= link_to "Index",    index_path %></li>
-              <li><%= link_to "New",    new_path %></li>
-              <li><%= link_to "About", about_path %></li>
-              <li><%= link_to "|　Sign up", signup_path %></li>
-              <li><%= link_to "Sign in", signup_path %></li>
+              <li><%= link_to "顧客一覧",    index_path %></li>
+              <li><%= link_to "新規顧客登録",    new_path %></li>
+              <!-- <li><%= link_to "CRM1について", about_path %></li> -->
+    			  <% if signed_in? %>
+    			    <li><%= link_to "|　ユーザー一覧", users_path %>
+      				<li id="fat-menu" class="dropdown">
+      				  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+      				    アカウント <b class="caret"></b>
+      				  </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "プロフィール", current_user %></li>
+                  <li><%= link_to "設定", edit_user_path(current_user) %></li>
+                  <li class="divider"></li>
+                  <li>
+                    <%= link_to "サインアウト", signout_path, method: "delete" %>
+                  </li>
+                </ul>
+              </li>
+            <% else %>
+              <li><%= link_to "|　サインアップ", signup_path %></li>
+              <li><%= link_to "サインイン", signin_path %></li>
+            <% end %>
             </ul>
           </nav>
         </div>

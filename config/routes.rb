@@ -1,7 +1,7 @@
 Crm1::Application.routes.draw do
 
   resources :users
-
+  resources :sessions, only: [:new, :create, :destroy]
   root 'homes#top'
   get '/about' => 'homes#about'
 
@@ -13,6 +13,8 @@ Crm1::Application.routes.draw do
   delete 'index/:id'=> 'customers#destroy', as: 'destroy_customer'
 
   match '/signup',  to: 'users#new',            via: 'get'
+  match '/signin',  to: 'sessions#new',			via: 'get'
+  match	'/signout',	to:	'sessions#destroy',		via: 'delete'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
