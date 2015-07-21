@@ -1,4 +1,6 @@
 class CustomersController < ApplicationController
+  before_action :signed_in_user, only: [:index, :edit, :update]
+  
   def index
   	@customer = Customer.all
   end
@@ -43,4 +45,14 @@ class CustomersController < ApplicationController
 	  def customer_params
 	    params.require(:customer).permit(:job_type, :company_name, :tel, :address, :rep, :pic, :call_date, :result, :memo)
 	  end
+
+     # Before actions
+
+    def signed_in_user
+      unless signed_in?
+        store_location
+        redirect_to signin_url, notice: "サインインして下さい"
+      end
+    end
+
 end

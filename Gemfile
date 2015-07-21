@@ -39,6 +39,12 @@ gem 'binding_of_caller' # Better Errors上でREPLを使用するためのgem
 gem 'bootstrap-sass', '2.3.2.0'
 
 gem 'bcrypt-ruby', '3.1.2'
+
+gem 'faker', '1.1.2'
+
+gem 'faker-japanese'
+
+gem 'will_paginate', '3.0.4'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
